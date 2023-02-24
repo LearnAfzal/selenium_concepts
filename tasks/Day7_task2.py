@@ -17,8 +17,10 @@ driver.find_element(By.NAME,"CompanyName").send_keys("afzalit003@gmail.com")
 #driver.find_element(By.NAME,"CompanyCountry").send_keys("United Kingdom")
 select_employees=Select(driver.find_element(By.NAME,"CompanyEmployees")).select_by_value("9")
 select_country=Select(driver.find_element(By.NAME,"CompanyCountry")).select_by_value("GB")
-driver.find_element(By.CLASS_NAME,"checkbox-ui").click()
-driver.find_element(By.XPATH,"//div[@class='form_submit_button submitButton buttonCTAItemComponent parbase']").click()
-#driver.find_element(By.LINK_TEXT,"Enter a valid phone number").is_displayed()
+#driver.find_element(By.CLASS_NAME,"checkbox-ui").click()  #avoid class name
+driver.find_element(By.XPATH,"//div[@class='checkbox-ui']").click()
+driver.find_element(By.NAME,"start my free trial").click()
+actual_errormsg=driver.find_element(By.XPATH,"//span[contains(@id,'UserPhone')]").text #link text/partial link text is applicable only for anchor
+print(actual_errormsg)
 time.sleep(5)
 driver.quit()

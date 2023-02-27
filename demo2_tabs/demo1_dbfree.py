@@ -19,3 +19,4 @@ driver.find_element(By.ID,"input_go").click()
 time.sleep(5)
 driver.close() # closes the current tab
 driver.quit() # kills the entire browser
+

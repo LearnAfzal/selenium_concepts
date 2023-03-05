@@ -19,23 +19,16 @@ driver.find_element(By.ID,"citiCard3").send_keys("8887")
 driver.find_element(By.ID,"citiCard4").send_keys("9998")
 driver.find_element(By.ID,"cvvnumber").send_keys("123")
 
-# DOB - using select class
-"""driver.find_element(By.NAME,"DOB").click()
-select_year=Select(driver.find_element(By.XPATH,"//select[@data-handler='selectYear']")).select_by_value("2022")
-select_month=Select(driver.find_element(By.XPATH,"//select[@data-handler='selectMonth']")).select_by_value("3")
-driver.find_element(By.LINK_TEXT,"14").click()"""
-
 # javascript using css selector to inject date directly - approach 1
 """driver.execute_script("document.querySelector('#bill-date-long').value='14/04/2022'")"""
 
 # javascript using arguments - approach 2
 ele1=driver.find_element(By.NAME,"DOB")
 driver.execute_script("arguments[0].value='14/04/2022'",ele1)
-
 time.sleep(5)
+
 driver.find_element(By.XPATH,"//input[@type='button']").click()
 time.sleep(5)
-#driver.find_element(By.ID,"agree").click()
 Text=driver.find_element(By.XPATH,"//li[contains(text(),'Please accept Terms and Conditions ')]").text
 print(Text)
 time.sleep(5)
